@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">usedencapsulation</string>
+    <string name="app_name">used</string>
+
+    <string name="recycler_linear_manager">LinearLayoutManager</string>
+    <string name="recycler_grid_manager">GridLayoutManager</string>
+    <string name="recycler_staggered_manager">StaggeredGridLayoutManager</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.daimhim.baseadapter;
+package com.example.used.baseadapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.example.usedencapsulation.view;
+package com.example.daimhim.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,7 +14,7 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
-import com.example.usedencapsulation.R;
+import com.example.daimhim.R;
 
 
 /**

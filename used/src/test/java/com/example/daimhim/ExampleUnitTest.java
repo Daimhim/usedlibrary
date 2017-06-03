@@ -1,4 +1,4 @@
-package com.example.usedencapsulation;
+package com.example.daimhim;
 
 import org.junit.Test;
 

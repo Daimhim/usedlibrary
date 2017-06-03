@@ -1,9 +1,9 @@
 package com.example.usedencapsulation.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -247,7 +247,7 @@ public class RadioGroupFlowLayout extends LinearLayout {
         event.setClassName(RadioGroupFlowLayout.class.getName());
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    @SuppressLint("NewApi")
     @Override
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);

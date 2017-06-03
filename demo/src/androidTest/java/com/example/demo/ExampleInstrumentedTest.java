@@ -1,4 +1,4 @@
-package com.example.daimhim.demo;
+package com.example.used.demo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

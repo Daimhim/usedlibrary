@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Third_Party_Project-usedlibrary.iml" filepath="$PROJECT_DIR$/Third_Party_Project-usedlibrary.iml" />
+      <module fileurl="file://F:\AndroidProject\usedlibrary\Third_Party_Project-usedlibrary.iml" filepath="F:\AndroidProject\usedlibrary\Third_Party_Project-usedlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
+      <module fileurl="file://F:\AndroidProject\usedlibrary\demo\demo.iml" filepath="F:\AndroidProject\usedlibrary\demo\demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/used/used.iml" filepath="$PROJECT_DIR$/used/used.iml" />
+      <module fileurl="file://F:\AndroidProject\usedlibrary\used\used.iml" filepath="F:\AndroidProject\usedlibrary\used\used.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/usedlibrary.iml" filepath="$PROJECT_DIR$/.idea/usedlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/xuyuan/xuyuan.iml" filepath="$PROJECT_DIR$/xuyuan/xuyuan.iml" />
+      <module fileurl="file://F:\AndroidProject\usedlibrary\xuyuan\xuyuan.iml" filepath="F:\AndroidProject\usedlibrary\xuyuan\xuyuan.iml" />
     </modules>
   </component>
 </project>

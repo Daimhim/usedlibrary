@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Third_Party_Project-usedlibrary.iml" filepath="$PROJECT_DIR$/Third_Party_Project-usedlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/usedencapsulation.iml" filepath="$PROJECT_DIR$/usedencapsulation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/usedlibrary/usedlibrary.iml" filepath="$PROJECT_DIR$/usedlibrary/usedlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/used/used.iml" filepath="$PROJECT_DIR$/used/used.iml" />
     </modules>
   </component>
 </project>

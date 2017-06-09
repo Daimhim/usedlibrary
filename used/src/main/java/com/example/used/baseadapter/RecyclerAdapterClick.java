@@ -65,6 +65,10 @@ public abstract class RecyclerAdapterClick<VH extends RecyclerAdapterClick.BaseV
 
         public BaseViewHolder(View itemView) {
             super(itemView);
+            initOnItemClickListeners(itemView);
+        }
+
+        protected void initOnItemClickListeners(View itemView) {
             if (null != mOnItemClickListeners || isOnItemClickListener()) {
                 mOnHolderClickListene = new View.OnClickListener() {
                     @Override

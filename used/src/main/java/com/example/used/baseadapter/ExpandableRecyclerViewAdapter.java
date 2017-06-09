@@ -10,16 +10,16 @@ import java.util.List;
  * Created by Administrator on 2017/5/4 0004.
  */
 
-public abstract class ExpandableRecyclerViewAdapter<VHG extends RecyclerAdapterClick.BaseViewHolder,VHC extends RecyclerAdapterClick.BaseViewHolder> extends RecyclerAdapterClick<RecyclerAdapterClick.BaseViewHolder> {
+public abstract class ExpandableRecyclerViewAdapter<VHG extends RecyclerAdapterClick.BaseViewHolder, VHC extends RecyclerAdapterClick.BaseViewHolder> extends RecyclerAdapterClick<RecyclerAdapterClick.BaseViewHolder> {
 
     private List<Pair<Integer, Integer>> mPairPositionList;
 
     private int mPosition = -1;
 
-    public final void notifyPositionChanged(){
-        if (null == mPairPositionList){
+    public final void notifyPositionChanged() {
+        if (null == mPairPositionList) {
             mPairPositionList = new ArrayList<>();
-        }else {
+        } else {
             mPairPositionList.clear();
         }
         for (int i = 0; i < getGroupCount(); i++) {
@@ -34,7 +34,7 @@ public abstract class ExpandableRecyclerViewAdapter<VHG extends RecyclerAdapterC
     public RecyclerAdapterClick.BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Pair<Integer, Integer> integerPair = mPairPositionList.get(mPosition);
         if (integerPair.second == -1) {
-            return onCreateGroupViewHolder(parent,viewType);
+            return onCreateGroupViewHolder(parent, viewType);
         } else {
             return onCreateChildViewHolder(parent, viewType);
         }
@@ -43,10 +43,10 @@ public abstract class ExpandableRecyclerViewAdapter<VHG extends RecyclerAdapterC
     @Override
     public void onBindViewHolder(RecyclerAdapterClick.BaseViewHolder holder, int position) {
         Pair<Integer, Integer> integerPair = mPairPositionList.get(position);
-        if (integerPair.second == -1){
-            onBindGroupViewHolder((VHG) holder,integerPair.first);
-        }else {
-            onBindChildViewHolder((VHC) holder,integerPair.first,integerPair.second);
+        if (integerPair.second == -1) {
+            onBindGroupViewHolder((VHG) holder, integerPair.first);
+        } else {
+            onBindChildViewHolder((VHC) holder, integerPair.first, integerPair.second);
         }
     }
 
@@ -57,7 +57,7 @@ public abstract class ExpandableRecyclerViewAdapter<VHG extends RecyclerAdapterC
         if (integerPair.second == -1) {
             return -(getGroupItemViewType(integerPair.first) == 0 ? -1 : getGroupItemViewType(integerPair.first));
         } else {
-            return Math.abs(getChildItemViewType(integerPair.first,integerPair.second));
+            return Math.abs(getChildItemViewType(integerPair.first, integerPair.second));
         }
     }
 
@@ -66,26 +66,29 @@ public abstract class ExpandableRecyclerViewAdapter<VHG extends RecyclerAdapterC
         return mPairPositionList.size();
     }
 
-    public int getGroupItemViewType(int groupPosition){
+    public int getGroupItemViewType(int groupPosition) {
         return 1;
     }
 
-    public int getChildItemViewType(int groupPosition,int childPosition){
+    public int getChildItemViewType(int groupPosition, int childPosition) {
         return 1;
     }
+
     //如果为Group 则返回-1 为子类则返回 其位置
-    public int getPosition(int position){
+    public int getPosition(int position) {
         return mPairPositionList.get(position).second;
     }
 
     /**
      * 获取当前坐标
+     *
      * @param position
      * @return
      */
-    public Pair<Integer, Integer> getCoordinate(int position){
+    public Pair<Integer, Integer> getCoordinate(int position) {
         return mPairPositionList.get(position);
     }
+
     public abstract int getGroupCount();
 
     public abstract int getChildrenCount(int groupPosition);
@@ -96,6 +99,6 @@ public abstract class ExpandableRecyclerViewAdapter<VHG extends RecyclerAdapterC
 
     public abstract void onBindGroupViewHolder(VHG holder, int groupPosition);
 
-    public abstract void onBindChildViewHolder(VHC holder,int groupPosition, int childPosition);
+    public abstract void onBindChildViewHolder(VHC holder, int groupPosition, int childPosition);
 
 }

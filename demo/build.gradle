@@ -32,4 +32,5 @@ dependencies {
     compile project(':used')
     compile project(':xuyuan')
     compile 'com.android.support:design:25.0.0'
+    compile 'com.getbase:floatingactionbutton:1.10.1'
 }

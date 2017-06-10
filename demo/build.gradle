@@ -31,4 +31,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':used')
     compile project(':xuyuan')
+    compile 'com.android.support:design:25.0.0'
 }

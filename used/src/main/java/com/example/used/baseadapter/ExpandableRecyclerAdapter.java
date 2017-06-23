@@ -1,12 +1,9 @@
 package com.example.used.baseadapter;
 
 import android.util.Pair;
-import android.util.SparseArray;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.ArrayList;
 
 /**
  * 项目名称：com.example.used.baseadapter
@@ -57,7 +54,7 @@ public abstract class ExpandableRecyclerAdapter<VHG extends RecyclerAdapterClick
         mSparseArray.put(getGroupCount(), num);
     }
 
-    private Pair<Integer, Integer> indexOfArray(int position) {
+    public Pair<Integer, Integer> indexOfPosition(int position) {
         int num = 0;
         for (int i = 0; i < getGroupCount(); i++) {
             num += getChildrenCount(i);
@@ -76,6 +73,15 @@ public abstract class ExpandableRecyclerAdapter<VHG extends RecyclerAdapterClick
         return new Pair<>(0, 0);
     }
 
+    public Pair<Integer,Integer> indexOfGroupPosition(int groupPosition){
+        int num = 0;
+        for (int i = 0; i < groupPosition; i++) {
+            num += getChildrenCount(i);
+            num++;
+        }
+        return new Pair<>(groupPosition,num);
+    }
+
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         if (viewType < 0) {
@@ -89,7 +95,7 @@ public abstract class ExpandableRecyclerAdapter<VHG extends RecyclerAdapterClick
     public void onBindViewHolder(RecyclerAdapterClick.BaseViewHolder baseViewHolder, int position) {
         int ofValue = mSparseArray.indexOfValue(position);
         if (ofValue < 0) {
-            Pair<Integer, Integer> integerPair = indexOfArray(position);
+            Pair<Integer, Integer> integerPair = indexOfPosition(position);
             onBindChildViewHolder((VHC) baseViewHolder, integerPair.first, integerPair.second);
         } else {
             onBindGroupViewHolder((VHG) baseViewHolder, ofValue);
@@ -100,7 +106,7 @@ public abstract class ExpandableRecyclerAdapter<VHG extends RecyclerAdapterClick
     public int getItemViewType(int position) {
         int ofValue = mSparseArray.indexOfValue(position);
         if (ofValue < 0) {
-            Pair<Integer, Integer> integerPair = indexOfArray(position);
+            Pair<Integer, Integer> integerPair = indexOfPosition(position);
             return getChildItemViewType(integerPair.first, integerPair.second);
         } else {
             return -getGroupItemViewType(ofValue);
@@ -129,7 +135,7 @@ public abstract class ExpandableRecyclerAdapter<VHG extends RecyclerAdapterClick
         int ofValue = mSparseArray.indexOfValue(position);
         if (ofValue < 0) { //Child
             if ( null != mOnChildItemClickListeners){
-                Pair<Integer, Integer> integerPair = indexOfArray(position);
+                Pair<Integer, Integer> integerPair = indexOfPosition(position);
                 mOnChildItemClickListeners.onGroupItemClick(v,integerPair.first,integerPair.second);
             }
         } else {
@@ -144,7 +150,7 @@ public abstract class ExpandableRecyclerAdapter<VHG extends RecyclerAdapterClick
         int ofValue = mSparseArray.indexOfValue(position);
         if (ofValue < 0) { //Child
             if ( null != mOnChildItemLongClickListener){
-                Pair<Integer, Integer> integerPair = indexOfArray(position);
+                Pair<Integer, Integer> integerPair = indexOfPosition(position);
                 mOnChildItemLongClickListener.onGroupItemLongClick(v,integerPair.first,integerPair.second);
             }
         } else {

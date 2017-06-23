@@ -7,43 +7,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_RecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layoutManager="@string/recycler_linear_manager" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_FloatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right|bottom"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_anchor="@+id/rv_RecyclerView"
-        app:layout_anchorGravity="bottom|right" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_FloatingActionButton_two"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="16dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_anchor="@+id/rv_RecyclerView"
-        app:layout_anchorGravity="center_horizontal|bottom" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_FloatingActionButton_one"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_anchor="@+id/rv_RecyclerView"
-        app:layout_anchorGravity="bottom" />
 
 </android.support.design.widget.CoordinatorLayout>

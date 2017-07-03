@@ -3,6 +3,7 @@ package com.example.used.toolset;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 
 import static android.util.TypedValue.COMPLEX_UNIT_DIP;
 import static android.util.TypedValue.COMPLEX_UNIT_IN;
@@ -18,31 +19,41 @@ import static android.util.TypedValue.COMPLEX_UNIT_SP;
  * Founder: Daimhim
  * QQ: 154944544
  * Remarks:
+ *      COMPLEX_UNIT_PX
+ *      COMPLEX_UNIT_DIP
+ *      COMPLEX_UNIT_SP
+ *      COMPLEX_UNIT_PT
+ *      COMPLEX_UNIT_IN
+ *      COMPLEX_UNIT_MM
  */
 
 public class Dimension {
-    public static float applyDimension(int unit, float value, Context context) {
+    public static float applyDimension(Context context,int unit, float value) {
         Resources r;
-
         if (context == null)
             r = Resources.getSystem();
         else
             r = context.getResources();
-        DisplayMetrics metrics = r.getDisplayMetrics();
-        switch (unit) {
-            case COMPLEX_UNIT_PX:
-                return value;
-            case COMPLEX_UNIT_DIP:
-                return value * metrics.density;
-            case COMPLEX_UNIT_SP:
-                return value * metrics.scaledDensity;
-            case COMPLEX_UNIT_PT:
-                return value * metrics.xdpi * (1.0f / 72);
-            case COMPLEX_UNIT_IN:
-                return value * metrics.xdpi;
-            case COMPLEX_UNIT_MM:
-                return value * metrics.xdpi * (1.0f / 25.4f);
-        }
-        return 0;
+        return TypedValue.applyDimension(
+                unit, value, r.getDisplayMetrics());
+    }
+
+    public static float outputDIP(Context context,float value) {
+        return applyDimension(context,COMPLEX_UNIT_DIP,value);
+    }
+    public static float outputPX(Context context,float value) {
+        return applyDimension(context,COMPLEX_UNIT_PX,value);
+    }
+    public static float outputSP(Context context,float value) {
+        return applyDimension(context,COMPLEX_UNIT_SP,value);
+    }
+    public static float outputPT(Context context,float value) {
+        return applyDimension(context,COMPLEX_UNIT_PT,value);
+    }
+    public static float outputIN(Context context,float value) {
+        return applyDimension(context,COMPLEX_UNIT_IN,value);
+    }
+    public static float outputMM(Context context,float value) {
+        return applyDimension(context,COMPLEX_UNIT_MM,value);
     }
 }

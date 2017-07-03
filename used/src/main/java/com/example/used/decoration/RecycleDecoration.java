@@ -39,10 +39,6 @@ public abstract class RecycleDecoration extends RecyclerView.ItemDecoration {
 
     private int mOrientation = VERTICAL;  //方向
 
-    private ArrayList<CacheItemView> mItemViews; //缓存
-
-    private Map<Integer,CacheItemView> itemViewMap;
-
     /**
      * 默认间距高度
      */
@@ -88,12 +84,10 @@ public abstract class RecycleDecoration extends RecyclerView.ItemDecoration {
     }
 
     protected RecycleDecoration create(DecorationBuilder decorationBuilder) {
-        if (null != decorationBuilder.mContext){
+        if (null != decorationBuilder.mContext) {
             this.mContext = decorationBuilder.mContext;
         }
         this.mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        this.mItemViews = new ArrayList<>();
-        this.itemViewMap = new HashMap<>();
         this.mDividerColor = decorationBuilder.mDividerColor;
         this.mPaint.setColor(ContextCompat.getColor(mContext, decorationBuilder.mDividerColor));
         this.mPaint.setStyle(Paint.Style.STROKE);
@@ -132,19 +126,19 @@ public abstract class RecycleDecoration extends RecyclerView.ItemDecoration {
             View childAt = parent.getChildAt(i);
             int position = parent.getChildAdapterPosition(childAt);
             //绘制边线 获取用户定义的绘制类
-            if (null != mCustomizedDraw){
+            CacheItemView itemOffsets = state.get(position);
+            if (null == itemOffsets){itemOffsets = new CacheItemView();}
+            if (null != mCustomizedDraw) {
                 if (!mCustomizedDraw.obtainDrawOver(c, position, childAt,
-                        itemViewMap.get(position).outRect,
-                        itemViewMap.get(position).outRectColor,getDividerColor(),getDividerWidth())) {
+                        itemOffsets.outRect,
+                        itemOffsets.outRectColor, getDividerColor(), getDividerWidth())) {
 
-                    drawLine(c, itemViewMap.get(position).outRect,
-                            itemViewMap.get(position).outRectColor, childAt);
+                    drawLine(c, itemOffsets.outRect,
+                            itemOffsets.outRectColor, childAt);
                 }
-            }else {
-                if (itemViewMap.size() > position) {
-                    drawLine(c, itemViewMap.get(position).outRect,
-                            itemViewMap.get(position).outRectColor, childAt);
-                }
+            } else {
+                drawLine(c, itemOffsets.outRect,
+                        itemOffsets.outRectColor, childAt);
             }
         }
     }
@@ -227,7 +221,7 @@ public abstract class RecycleDecoration extends RecyclerView.ItemDecoration {
         Rect itemRect = new Rect();
         Rect itemColor = new Rect();
         if (null != mCustomizedOffsets) {
-            if (!mCustomizedOffsets.obtainOffsets(itemRect, itemColor,getDividerColor(),getDividerWidth(), position)) {
+            if (!mCustomizedOffsets.obtainOffsets(itemRect, itemColor, getDividerColor(), getDividerWidth(), position)) {
                 getDefaultOffsets(itemRect, itemColor, view, parent, state);
             }
         } else {
@@ -239,26 +233,7 @@ public abstract class RecycleDecoration extends RecyclerView.ItemDecoration {
         itemOffsets.position = position;
         itemOffsets.outRectColor = itemColor;
         itemOffsets.outRect = itemRect;
-        itemViewMap.put(position,itemOffsets);
-//        if (cacheSize > mItemViews.size()) {
-//            if (mItemViews.size() == 0) {
-//                mItemViews.add(itemOffsets);
-//            } else {
-//                if (mItemViews.get(0).position < position) {
-//                    mItemViews.add(itemOffsets);
-//                } else {
-//                    mItemViews.add(0, itemOffsets);
-//                }
-//            }
-//        } else {
-//            if (mItemViews.get(0).position < position) {
-//                mItemViews.add(itemOffsets);
-//                mItemViews.remove(0);
-//            } else {
-//                mItemViews.add(0, itemOffsets);
-//                mItemViews.remove(mItemViews.size() - 1);
-//            }
-//        }
+        state.put(position, itemOffsets);
     }
 
     /**

@@ -51,7 +51,7 @@ public class ExampleUnitTest {
     private int findType(int pos){
         int size = 0;
         for (int i = 0; i < listList.size(); i++) {
-            size += getContent(i);
+            size += listList.get(i).size();
             if (size > pos){
                 return i;
             }else if (size==pos){
@@ -63,8 +63,8 @@ public class ExampleUnitTest {
     private int find(int pos){
         int size = 0;
         int arraySize = 0;
-        for (int i = 0; i < listList.size() -1; i++) {
-            arraySize = getContent(i);
+        for (int i = 0; i < listList.size() ; i++) {
+            arraySize = listList.get(i).size();
             size += arraySize;
             if (size > pos){
                 return pos - (size - arraySize);
@@ -74,14 +74,14 @@ public class ExampleUnitTest {
         }
         return 0;
     }
-    private int getContent(int pos){
-        int size = listList.get(pos).size();
-        return size == 0?1: size;
-    }
+//    private int getContent(int pos){
+//        int size = listList.get(pos).size();
+//        return size == 0?1: size;
+//    }
     private int getCon(){
         int size = 0;
         for (int i = 0; i < listList.size(); i++) {
-            size += getContent(i);
+            size += listList.get(i).size();
         }
         return size;
     }

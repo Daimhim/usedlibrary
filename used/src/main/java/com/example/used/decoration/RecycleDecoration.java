@@ -252,8 +252,8 @@ public abstract class RecycleDecoration extends RecyclerView.ItemDecoration {
      */
     class CacheItemView {
         int position;
-        Rect outRect;
-        Rect outRectColor;
+        Rect outRect = new Rect();
+        Rect outRectColor = new Rect();
 
         @Override
         public String toString() {

@@ -1,36 +1,28 @@
 package com.example.demo;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.util.Pair;
 import android.view.View;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.used.baseadapter.ExpandableRecyclerAdapter;
-import com.example.used.baseadapter.RecyclerAdapterClick;
-import com.example.used.decoration.DecorationBuilder;
-import com.example.used.decoration.LinearDecoration;
-import com.example.used.toolset.Dimension;
-import com.example.used.view.RadioGroupFlowLayout;
-import com.example.xuyuan.adapter.BaseAdaptyer;
+/**
+ * 项目名称：com.example.demo
+ * 项目版本：usedlibrary
+ * 创建人：Daimhim
+ * 创建时间：2017/7/10 14:15
+ * 修改人：Daimhim
+ * 修改时间：2017/7/10 14:15
+ * 类描述：
+ * 修改备注：
+ */
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static android.util.TypedValue.COMPLEX_UNIT_PX;
-
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class DemoActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView tv_tonew;
     TextView tv_show;
@@ -47,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (ActivityManager.RunningAppProcessInfo appProcess : am.getRunningAppProcesses()){
             if(appProcess.pid == pid){
                 processName = appProcess.processName;
-                Log.i("zx_MainActivity","processName:"+processName);
+                Log.i("zx_MainDemoActivity","processName:"+processName);
                 break;
             }
         }
@@ -58,7 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.tv_tonew:
-                startActivity(new Intent(this,DemoActivity.class));
+                Intent intent = new Intent(this,Demo2Activity.class);
+                intent.putExtra("goodId","123456");
+                startActivity(intent);
                 break;
         }
     }

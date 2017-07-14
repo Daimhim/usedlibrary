@@ -1,1 +1,1 @@
-include ':demo', ':used','xuyuan'
+include ':demo', ':used','xuyuan','commonutils'

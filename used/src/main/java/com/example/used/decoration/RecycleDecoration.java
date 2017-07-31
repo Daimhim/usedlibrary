@@ -127,7 +127,9 @@ public abstract class RecycleDecoration extends RecyclerView.ItemDecoration {
             int position = parent.getChildAdapterPosition(childAt);
             //绘制边线 获取用户定义的绘制类
             CacheItemView itemOffsets = state.get(position);
-            if (null == itemOffsets){itemOffsets = new CacheItemView();}
+            if (null == itemOffsets)break;
+            if (itemOffsets.outRect == null)break;
+            if (itemOffsets.outRectColor == null)break;
             if (null != mCustomizedDraw) {
                 if (!mCustomizedDraw.obtainDrawOver(c, position, childAt,
                         itemOffsets.outRect,

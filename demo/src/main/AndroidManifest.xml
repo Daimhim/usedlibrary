@@ -6,7 +6,6 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:name=".StartApp"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -19,11 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DemoActivity"
-            android:process="com.example.daimhim.main"/>
 
-        <activity android:name=".Demo2Activity"
-            android:process="com.example.daimhim.demo"/>
     </application>
 
 </manifest>

@@ -1,23 +1,37 @@
 package com.example.demo;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+
+import com.example.basic.BaseActivity;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+public class MainActivity extends BaseActivity implements View.OnClickListener {
+    Button mButton;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+    protected void onSetPresenterImp() {
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_tonew:
+    protected void onSetContentView() {
+        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onSetUpView(Bundle savedInstanceState) {
+        mButton = findViewById(R.id.bt_show);
+        mButton.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onSetEntry() {
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.bt_show:
                 break;
         }
     }

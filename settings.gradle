@@ -1,1 +1,1 @@
-include ':demo', ':used','commonutils'
+include ':demo', ':used', ':basic','commonutils'

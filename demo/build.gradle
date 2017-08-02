@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    compileSdkVersion 26
+    buildToolsVersion '26.0.0'
     defaultConfig {
         applicationId "com.example.daimhim.demo"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -28,7 +28,12 @@ dependencies {
         exclude group: 'com.android.support'
     })
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    //noinspection GradleCompatible
+    compile 'com.android.support:appcompat-v7:26.0.0'
     compile 'com.android.support:recyclerview-v7:25.0.0'
+    compile 'com.jakewharton:butterknife:8.7.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
+    compile project(':basic')
+    compile project(':commonutils')
+    compile project(':used')
 }

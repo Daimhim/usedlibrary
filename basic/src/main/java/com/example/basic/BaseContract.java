@@ -15,7 +15,7 @@ public interface BaseContract {
 
     interface View{
 
-        void setPresenter();
+        void setPresenterAndModule();
 
         void showProgressDialog();
 
@@ -24,9 +24,9 @@ public interface BaseContract {
         void showError(String error);
     }
 
-    interface Presenter<T extends View>{
+    interface Presenter{
 
-        void onStart(T view);
+        void onStart();
 
         void onStop();
     }

@@ -11,13 +11,21 @@ package com.example.basic;
  * 修改备注：
  */
 
-public abstract class BasePresenter<T extends BaseContract.View>  implements BaseContract.Presenter<T>{
+public abstract class BasePresenter<V extends BaseContract.View,M extends BaseModule>  implements BaseContract.Presenter{
     String TAG = "TAG:" + getClass().getSimpleName();
 
-    T mView;
+    protected V view;
+    protected M module;
+
+    public BasePresenter(V view, M module) {
+        this.view = view;
+        this.module = module;
+    }
 
     @Override
-    public abstract void onStart(T view);
+    public void onStart(){
+
+    }
 
     @Override
     public void onStop() {

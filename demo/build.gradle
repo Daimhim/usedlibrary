@@ -28,12 +28,19 @@ dependencies {
         exclude group: 'com.android.support'
     })
     testCompile 'junit:junit:4.12'
+
     //noinspection GradleCompatible
     compile 'com.android.support:appcompat-v7:26.0.0'
     compile 'com.android.support:recyclerview-v7:25.0.0'
     compile 'com.jakewharton:butterknife:8.7.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.2-alpha-7'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.2-alpha-7'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile project(':basic')
     compile project(':commonutils')
     compile project(':used')
+    compile ('com.meyki:MVPBase:1.1'){
+        changing=true
+    }
 }

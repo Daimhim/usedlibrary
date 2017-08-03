@@ -1,7 +1,6 @@
 package com.example.demo.welcome;
 
 import android.os.Bundle;
-import android.widget.Button;
 
 import com.example.basic.BaseActivity;
 
@@ -16,11 +15,11 @@ import com.example.basic.BaseActivity;
  * 修改备注：
  */
 
-public class WelcomeActivity extends BaseActivity{
+public class WelcomeActivity extends BaseActivity<WelcomeContract.Presenter,WelcomeModule>{
 
 
     @Override
-    protected void onSetPresenterImp() {
+    protected void setPresenterAndModule() {
 
     }
 

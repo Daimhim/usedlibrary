@@ -20,17 +20,21 @@ import com.example.basic.utils.ProgressDialogUtils;
  * 修改备注：
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity<P extends BaseContract.Presenter,M extends BaseModule> extends AppCompatActivity {
 
     protected String TAG = "TAG:" + getClass().getSimpleName();
 
     protected Context mContext;
 
+    protected P presenter;
+
+    protected M module;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
-        onSetPresenterImp();
+        setPresenterAndModule();
         onSetContentView();
         onSetUpView(savedInstanceState);
         onSetEntry();
@@ -38,7 +42,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 获取业务逻辑实现类
      **/
-    protected abstract void onSetPresenterImp();
+    protected abstract void setPresenterAndModule();
 
     /**
      * 获取布局文件

@@ -22,12 +22,15 @@ import com.example.basic.utils.ToastUtil;
  * 修改备注：
  */
 
-public abstract class BaseFragment extends Fragment implements BaseContract.View{
+public abstract class BaseFragment<P extends BaseContract.Presenter,M extends BaseModule> extends Fragment implements BaseContract.View{
 
     protected String TAG = "TAG:" + getClass().getSimpleName();
 
     protected Context mContext;
 
+    protected P presenter;
+
+    protected M module;
 
     protected ProgressDialogUtils mProgressDialogUtils;
 
@@ -54,7 +57,7 @@ public abstract class BaseFragment extends Fragment implements BaseContract.View
     }
 
     @Override
-    public abstract void setPresenter();
+    public abstract void setPresenterAndModule();
 
     @Override
     public void showProgressDialog() {

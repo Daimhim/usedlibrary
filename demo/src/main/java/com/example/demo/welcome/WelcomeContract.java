@@ -18,6 +18,7 @@ public class WelcomeContract {
 
     }
 
-    interface Presenter extends BaseContract.Presenter<View>{
+    interface Presenter extends BaseContract.Presenter{
+
     }
 }

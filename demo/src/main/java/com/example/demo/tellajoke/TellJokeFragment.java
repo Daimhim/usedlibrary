@@ -14,12 +14,9 @@ import com.example.basic.utils.QLog;
 import com.example.demo.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * 项目名称：com.example.demo.tellajoke
@@ -65,7 +62,7 @@ public class TellJokeFragment extends BaseFragment<TellJokeContract.Presenter, T
 
     @Override
     public void onRefresh(RefreshLayout refreshLayout) {
-        presenter.getJokeSet(page,20);
-        mSrlSmartrefreshlayout.finishRefresh();
+//        presenter.getJokeSet(page,20);
+        mSrlSmartrefreshlayout.finishRefresh(20);
     }
 }

@@ -1,13 +1,10 @@
 package com.example.demo;
 
-import android.util.Log;
 
 import com.example.demo.bean.Joke;
 
 import io.reactivex.Observable;
-import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -23,6 +20,6 @@ import retrofit2.http.Query;
 
 public interface JuHeApi {
     @GET("joke/content/list.from?")
-    Call<Joke> getJokeList(@Query("key") String key, @Query("page") int page,
+    Observable<Joke> getJokeList(@Query("key") String key, @Query("page") int page,
                            @Query("pagesize")int pagesize, @Query("sort")String sort, @Query("time")long titme);
 }

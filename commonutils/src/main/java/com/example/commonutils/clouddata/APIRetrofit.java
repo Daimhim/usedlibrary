@@ -25,6 +25,10 @@ public class APIRetrofit {
 
     private static OkHttpClient sOKHttpClient;
 
+    private static CacheInterceptor cacheInterceptor = new CacheInterceptor();
+
+    private static HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
+
     public static <T> T createApi(Class<T> clazz) {
         return getInstance().create(clazz);
     }
@@ -66,10 +70,14 @@ public class APIRetrofit {
                     sOKHttpClient = new OkHttpClient.Builder()
                             .retryOnConnectionFailure(Config.RETRY_ON_CONNECTION_FAILURE)  //方法为设置出现错误进行重新连接。
                             .cache(HttpCache.getCache())  //缓存
+                            //设置Cache
+                            .addNetworkInterceptor(cacheInterceptor)//缓存方面需要加入这个拦截器
+                            .addInterceptor(cacheInterceptor)
                             .connectTimeout(Config.CONNECT_TIME_OUT, TimeUnit.SECONDS)
                             .readTimeout(Config.READ_TIME_OUT, TimeUnit.SECONDS)
                             .writeTimeout(Config.WRITE_TIME_OUT, TimeUnit.SECONDS)
-                            .addInterceptor(logging)
+                            //打印日志
+                            .addInterceptor(interceptor)
                             .build();
                 }
             }
@@ -78,14 +86,6 @@ public class APIRetrofit {
         return sOKHttpClient;
     }
 
-    static HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-        @Override
-        public void log(String message) {
-            if (Config.DEBUG){
-                Log.i(TAG,message);
-            }
-        }
-    });
 
 
 }

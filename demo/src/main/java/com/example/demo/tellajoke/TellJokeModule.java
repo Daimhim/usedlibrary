@@ -5,6 +5,7 @@ import com.example.commonutils.clouddata.APIRetrofit;
 import com.example.demo.JuHeApi;
 import com.example.demo.bean.Joke;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
 
 /**
@@ -21,7 +22,8 @@ import retrofit2.Call;
 public class TellJokeModule implements BaseModule {
 
     JuHeApi juHeApi = APIRetrofit.getInstance("http://japi.juhe.cn/").create(JuHeApi.class);
-    Call<Joke> getJokeList(String key, int page, int pagesize, String sort, long titme){
+    Observable<Joke> getJokeList(String key, int page, int pagesize, String sort, long titme){
+
         return juHeApi.getJokeList(key, page, pagesize,sort, titme);
     }
 }

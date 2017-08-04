@@ -1,6 +1,13 @@
 package com.example.demo.tellajoke;
 
 import com.example.basic.BasePresenter;
+import com.example.basic.utils.QLog;
+import com.example.demo.bean.Joke;
+
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 项目名称：com.example.demo.tellajoke
@@ -22,14 +29,16 @@ public class TellJokePresenter extends BasePresenter<TellJokeContract.View,TellJ
     @Override
     public void getJokeSet(int page,int pagesize) {
 //        String key,int page,int pagesize,long titme
-//        module.getJokeList("",page,pagesize,"",System.currentTimeMillis())
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Consumer<Joke>() {
-//                    @Override
-//                    public void accept(Joke joke) throws Exception {
-//                        QLog.i(TAG,joke.toString());
-//                    }
-//                });
+
+//        module.getJokeList("6a7f40ff902220aead73f5f746d423f1", page, pagesize, "", System.currentTimeMillis());
+        module.getJokeList("6a7f40ff902220aead73f5f746d423f1",page,pagesize,"",(int)(System.currentTimeMillis()/1000))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Joke>() {
+                    @Override
+                    public void accept(Joke joke) throws Exception {
+                        QLog.i(TAG,joke.toString());
+                    }
+                });
     }
 }

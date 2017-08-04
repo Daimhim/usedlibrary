@@ -36,6 +36,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.2-alpha-7'
     compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.2-alpha-7'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3-alpha-6'//没有使用特殊Header，可以不加这行
 
     compile ('com.squareup.retrofit2:retrofit:2.3.0'){
         exclude group: 'com.squareup.retrofit2', module: 'retrofit'

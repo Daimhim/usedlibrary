@@ -49,6 +49,15 @@ public class Joke {
         this.result = result;
     }
 
+    @Override
+    public String toString() {
+        return "Joke{" +
+                "error_code=" + error_code +
+                ", reason='" + reason + '\'' +
+                ", result=" + result +
+                '}';
+    }
+
     public static class ResultBean {
         private List<DataBean> data;
 
@@ -106,6 +115,16 @@ public class Joke {
 
             public void setUpdatetime(String updatetime) {
                 this.updatetime = updatetime;
+            }
+
+            @Override
+            public String toString() {
+                return "DataBean{" +
+                        "content='" + content + '\'' +
+                        ", hashId='" + hashId + '\'' +
+                        ", unixtime=" + unixtime +
+                        ", updatetime='" + updatetime + '\'' +
+                        '}';
             }
         }
     }

@@ -1,6 +1,14 @@
 package com.example.demo;
 
+import android.util.Log;
+
+import com.example.demo.bean.Joke;
+
+import io.reactivex.Observable;
+import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * 项目名称：com.example.demo
@@ -14,6 +22,7 @@ import retrofit2.http.GET;
  */
 
 public interface JuHeApi {
-//    @GET("joke/content/list.from?key={key}&page=2&pagesize=10&sort=asc&time=1418745237")
-//    void getJokeList(@String key);
+    @GET("joke/content/list.from?")
+    Call<Joke> getJokeList(@Query("key") String key, @Query("page") int page,
+                           @Query("pagesize")int pagesize, @Query("sort")String sort, @Query("time")long titme);
 }

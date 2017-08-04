@@ -3,11 +3,16 @@ package com.example.basic;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.basic.utils.KeyboardUtils;
 import com.example.basic.utils.ProgressDialogUtils;
+
+import io.reactivex.annotations.NonNull;
 
 /**
  * 项目名称：com.example.demo.welcome
@@ -65,6 +70,18 @@ public abstract class BaseActivity<P extends BaseContract.Presenter,M extends Ba
     protected void finishActivity() {
         KeyboardUtils.hideKeywordMethod(this);
         finish();
+    }
+
+    /**
+     * The {@code fragment} is added to the container view with id {@code frameId}. The operation is
+     * performed by the {@code fragmentManager}.
+     *
+     */
+    public static void addFragmentToActivity (@NonNull FragmentManager fragmentManager,
+                                              @NonNull Fragment fragment, int frameId) {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(frameId, fragment);
+        transaction.commit();
     }
 
 }

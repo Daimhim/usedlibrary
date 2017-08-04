@@ -1,8 +1,6 @@
 package com.example.demo;
 
 import com.example.commonutils.clouddata.APIRetrofit;
-import com.meyki.baselib.activity.MVPBaseActivity;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
 /**
  * 项目名称：com.example.demo

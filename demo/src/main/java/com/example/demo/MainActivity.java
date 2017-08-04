@@ -8,31 +8,29 @@ import com.example.basic.BaseActivity;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
-    Button mButton;
+
     @Override
-    protected void onSetPresenterImp() {
+    public void onClick(View view) {
+
+    }
+
+    @Override
+    protected void setPresenterAndModule() {
+
     }
 
     @Override
     protected void onSetContentView() {
-        setContentView(R.layout.activity_main);
+
     }
 
     @Override
     protected void onSetUpView(Bundle savedInstanceState) {
-        mButton = findViewById(R.id.bt_show);
-        mButton.setOnClickListener(this);
+
     }
 
     @Override
     protected void onSetEntry() {
-    }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.bt_show:
-                break;
-        }
     }
 }

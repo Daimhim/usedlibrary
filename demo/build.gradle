@@ -36,11 +36,17 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.2-alpha-7'
     compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.2-alpha-7'
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+
+    compile ('com.squareup.retrofit2:retrofit:2.3.0'){
+        exclude group: 'com.squareup.retrofit2', module: 'retrofit'
+    }
+    compile ('io.reactivex.rxjava2:rxandroid:2.0.1'){
+        exclude group:'io.reactivex.rxjava2', module:'rxjava'
+    }
+    compile ('io.reactivex.rxjava2:rxjava:2.1.0'){
+        exclude group:'io.reactivex.rxjava2', module:'rxjava'
+    }
     compile project(':basic')
     compile project(':commonutils')
     compile project(':used')
-    compile ('com.meyki:MVPBase:1.1'){
-        changing=true
-    }
 }

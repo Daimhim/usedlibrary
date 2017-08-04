@@ -34,19 +34,23 @@ public abstract class BaseFragment<P extends BaseContract.Presenter,M extends Ba
 
     protected ProgressDialogUtils mProgressDialogUtils;
 
+    public void setPresenterAndModule(P presenter,M module){
+        this.presenter = presenter;
+        this.module = module;
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getContext();
         mProgressDialogUtils = new ProgressDialogUtils();
-        onSetPresenterImp();
+        setPresenterAndModule();
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        onSetContentView(inflater, container, savedInstanceState);
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return onSetContentView(inflater, container, savedInstanceState);
     }
 
     @Override
@@ -57,7 +61,9 @@ public abstract class BaseFragment<P extends BaseContract.Presenter,M extends Ba
     }
 
     @Override
-    public abstract void setPresenterAndModule();
+    public void setPresenterAndModule(){
+
+    }
 
     @Override
     public void showProgressDialog() {
@@ -75,14 +81,9 @@ public abstract class BaseFragment<P extends BaseContract.Presenter,M extends Ba
     }
 
     /**
-     * 获取业务逻辑实现类
-     **/
-    protected abstract void onSetPresenterImp();
-
-    /**
      * 获取布局文件
      **/
-    protected abstract void onSetContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState);
+    protected abstract View onSetContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState);
 
     /**
      * 初始化组件

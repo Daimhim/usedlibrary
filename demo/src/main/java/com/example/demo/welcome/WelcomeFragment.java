@@ -19,21 +19,12 @@ import com.example.basic.BaseFragment;
  * 修改备注：
  */
 
-public class WelcomeFragment extends BaseFragment {
+public class WelcomeFragment extends BaseFragment<WelcomeContract.Presenter,WelcomeModule> {
+
 
     @Override
-    public void setPresenter() {
-
-    }
-
-    @Override
-    protected void onSetPresenterImp() {
-
-    }
-
-    @Override
-    protected void onSetContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+    protected View onSetContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return null;
     }
 
     @Override

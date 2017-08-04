@@ -1,5 +1,10 @@
 package com.example.basic;
 
+import org.reactivestreams.Subscription;
+
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+
 /**
  * 项目名称：com.example.demo
  * 项目版本：usedlibrary
@@ -12,8 +17,9 @@ package com.example.basic;
  */
 
 public abstract class BasePresenter<V extends BaseContract.View,M extends BaseModule>  implements BaseContract.Presenter{
-    String TAG = "TAG:" + getClass().getSimpleName();
+    protected String TAG = "TAG:" + getClass().getSimpleName();
 
+    private CompositeDisposable mCompositeSubscription;
     protected V view;
     protected M module;
 
@@ -29,6 +35,15 @@ public abstract class BasePresenter<V extends BaseContract.View,M extends BaseMo
 
     @Override
     public void onStop() {
+        if (this.mCompositeSubscription != null) {
+            this.mCompositeSubscription.dispose();
+        }
+    }
 
+    protected void addSubscription(Disposable s) {
+        if (this.mCompositeSubscription == null) {
+            this.mCompositeSubscription = new CompositeDisposable();
+        }
+        this.mCompositeSubscription.add(s);
     }
 }

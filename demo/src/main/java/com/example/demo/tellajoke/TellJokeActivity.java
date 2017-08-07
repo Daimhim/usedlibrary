@@ -27,8 +27,7 @@ public class TellJokeActivity extends BaseActivity<TellJokeContract.Presenter,Te
 
     @Override
     protected void onSetContentView() {
-        getSupportFragmentManager().beginTransaction().add(mTellJokeFragment,TAG).commit();
-
+        addFragmentToActivity(mTellJokeFragment,android.R.id.content);
     }
 
     @Override

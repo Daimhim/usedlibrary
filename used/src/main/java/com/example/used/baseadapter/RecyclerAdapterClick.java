@@ -13,6 +13,7 @@ import android.view.View;
  * Created by Daimhim on 2017/4/25.
  */
 public abstract class RecyclerAdapterClick<VH extends RecyclerAdapterClick.BaseViewHolder> extends RecyclerView.Adapter<VH> {
+    protected String TAG = "TAG:"+getClass().getSimpleName();
     private OnItemClickListener mOnItemClickListeners;
     private OnItemLongClickListener mOnItemLongClickListener;
 

@@ -1,6 +1,9 @@
 package com.example.demo.tellajoke;
 
 import com.example.basic.BaseContract;
+import com.example.demo.bean.Joke;
+
+import java.util.List;
 
 /**
  * 项目名称：com.example.demo.tellajoke
@@ -15,7 +18,7 @@ import com.example.basic.BaseContract;
 
 public interface TellJokeContract {
     interface View extends BaseContract.View{
-
+        void setValue(List<Joke.ResultBean.DataBean> beanList);
     }
 
     interface Presenter extends BaseContract.Presenter{

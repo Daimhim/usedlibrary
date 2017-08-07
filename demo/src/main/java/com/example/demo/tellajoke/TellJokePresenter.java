@@ -28,6 +28,7 @@ public class TellJokePresenter extends BasePresenter<TellJokeContract.View,TellJ
 
     @Override
     public void getJokeSet(int page,int pagesize) {
+        view.showProgressDialog();
 //        String key,int page,int pagesize,long titme
 
 //        module.getJokeList("6a7f40ff902220aead73f5f746d423f1", page, pagesize, "", System.currentTimeMillis());
@@ -37,7 +38,9 @@ public class TellJokePresenter extends BasePresenter<TellJokeContract.View,TellJ
                 .subscribe(new Consumer<Joke>() {
                     @Override
                     public void accept(Joke joke) throws Exception {
-                        QLog.i(TAG,joke.toString());
+                        view.setValue(joke.getResult().getData());
+                        view.dissProgressDialog();
+//                        QLog.i(TAG,joke.toString());
                     }
                 });
     }

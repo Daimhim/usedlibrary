@@ -77,11 +77,8 @@ public abstract class BaseActivity<P extends BaseContract.Presenter,M extends Ba
      * performed by the {@code fragmentManager}.
      *
      */
-    public static void addFragmentToActivity (@NonNull FragmentManager fragmentManager,
-                                              @NonNull Fragment fragment, int frameId) {
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.add(frameId, fragment);
-        transaction.commit();
+    public void addFragmentToActivity(@NonNull Fragment fragment, int frameId) {
+        getSupportFragmentManager().beginTransaction().add(frameId,fragment).commit();
     }
 
 }

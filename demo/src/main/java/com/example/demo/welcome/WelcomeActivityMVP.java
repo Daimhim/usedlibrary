@@ -2,7 +2,7 @@ package com.example.demo.welcome;
 
 import android.os.Bundle;
 
-import com.example.basic.BaseActivity;
+import com.example.demo.mvp.MVPBaseActivity;
 
 /**
  * 项目名称：com.example.demo
@@ -15,7 +15,7 @@ import com.example.basic.BaseActivity;
  * 修改备注：
  */
 
-public class WelcomeActivity extends BaseActivity<WelcomeContract.Presenter,WelcomeModule>{
+public class WelcomeActivityMVP extends MVPBaseActivity<WelcomeContract.Presenter,WelcomeModuleMVP> {
 
 
     @Override

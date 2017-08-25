@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.basic.BaseFragment;
+import com.example.demo.mvp.MVPBaseFragment;
 
 /**
  * 项目名称：com.example.demo.welcome
@@ -19,7 +19,7 @@ import com.example.basic.BaseFragment;
  * 修改备注：
  */
 
-public class WelcomeFragment extends BaseFragment<WelcomeContract.Presenter,WelcomeModule> {
+public class WelcomeFragmentMVP extends MVPBaseFragment<WelcomeContract.Presenter,WelcomeModuleMVP> {
 
 
     @Override

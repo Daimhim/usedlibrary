@@ -1,6 +1,6 @@
 package com.example.demo.tellajoke;
 
-import com.example.basic.BaseContract;
+import com.example.demo.mvp.MVPBaseContract;
 import com.example.demo.bean.Joke;
 
 import java.util.List;
@@ -17,11 +17,11 @@ import java.util.List;
  */
 
 public interface TellJokeContract {
-    interface View extends BaseContract.View{
+    interface View extends MVPBaseContract.View{
         void setValue(List<Joke.ResultBean.DataBean> beanList);
     }
 
-    interface Presenter extends BaseContract.Presenter{
+    interface Presenter extends MVPBaseContract.Presenter{
         void getJokeSet(int page,int pagesize);
     }
 }

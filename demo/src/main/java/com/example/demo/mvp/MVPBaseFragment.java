@@ -1,4 +1,4 @@
-package com.example.basic;
+package com.example.demo.mvp;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -22,7 +22,7 @@ import com.example.basic.utils.ToastUtil;
  * 修改备注：
  */
 
-public abstract class BaseFragment<P extends BaseContract.Presenter,M extends BaseModule> extends Fragment implements BaseContract.View{
+public abstract class MVPBaseFragment<P extends MVPBaseContract.Presenter,M extends MVPBaseModule> extends Fragment implements MVPBaseContract.View{
 
     protected String TAG = "TAG:" + getClass().getSimpleName();
 

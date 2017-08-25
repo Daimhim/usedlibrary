@@ -1,10 +1,8 @@
 package com.example.demo.tellajoke;
 
-import com.example.basic.BasePresenter;
-import com.example.basic.utils.QLog;
+import com.example.demo.mvp.MVPBasePresenter;
 import com.example.demo.bean.Joke;
 
-import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
@@ -20,9 +18,9 @@ import io.reactivex.schedulers.Schedulers;
  * 修改备注：
  */
 
-public class TellJokePresenter extends BasePresenter<TellJokeContract.View,TellJokeModule> implements TellJokeContract.Presenter{
+public class TellJokePresenterMVP extends MVPBasePresenter<TellJokeContract.View,TellJokeModuleMVP> implements TellJokeContract.Presenter{
 
-    public TellJokePresenter(TellJokeContract.View view, TellJokeModule module) {
+    public TellJokePresenterMVP(TellJokeContract.View view, TellJokeModuleMVP module) {
         super(view, module);
     }
 

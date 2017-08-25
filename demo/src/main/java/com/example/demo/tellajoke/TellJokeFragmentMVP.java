@@ -1,17 +1,13 @@
 package com.example.demo.tellajoke;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.basic.BaseFragment;
+import com.example.demo.mvp.MVPBaseFragment;
 import com.example.basic.utils.QLog;
 import com.example.demo.R;
 import com.example.demo.adapter.TellJokeAdapter;
@@ -35,7 +31,7 @@ import java.util.List;
  * 修改备注：
  */
 
-public class TellJokeFragment extends BaseFragment<TellJokeContract.Presenter, TellJokeModule> implements TellJokeContract.View, OnRefreshListener, OnLoadmoreListener {
+public class TellJokeFragmentMVP extends MVPBaseFragment<TellJokeContract.Presenter, TellJokeModuleMVP> implements TellJokeContract.View, OnRefreshListener, OnLoadmoreListener {
 
 
 

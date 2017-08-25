@@ -16,36 +16,6 @@ public class ExampleUnitTest {
     List<List<String>> listList = null;
     @Test
     public void addition_isCorrect() throws Exception {
-        listList = new ArrayList<>();
-        List<String> list = null;
-        for (int i = 0; i < 5; i++) {
-            list = new ArrayList<>();
-            for (int j = 0; j < 4; j++) {
-                if (i != 0 && i != 2) {
-                    list.add(i + ":" + j);
-                }else if (i == 0 && j > 2){
-                    list.add(i + ":" + j);
-                }else if (i == 2 && j < 3){
-                    list.add(i + ":" + j);
-                }
-//                /*else if (i == 0 && j == 0){
-//                    list.add(0,i + ":" + j);
-//                }else if (i == 0 && j == 1){
-//                    list.add(1,i + ":" + j);
-//                }*/
-            }
-            listList.add(list);
-        }
-        for (int i = 0; i < getCon(); i++) {
-            System.out.println(find(i)+":"+findType(i)+":"+i);
-        }
-//        for (int i = 0; i < listList.size(); i++) {
-//            for (int j = 0; j < listList.get(i).size(); j++) {
-//                System.out.println(i+":"+j);
-//            }
-//        }
-        System.out.println(listList.toString());
-        System.out.println(getCon());
         assertEquals(4, 2 + 2);
     }
     private int findType(int pos){

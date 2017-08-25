@@ -1,16 +1,12 @@
-package com.example.basic;
+package com.example.demo.mvp;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import com.example.basic.utils.KeyboardUtils;
-import com.example.basic.utils.ProgressDialogUtils;
 
 import io.reactivex.annotations.NonNull;
 
@@ -25,7 +21,7 @@ import io.reactivex.annotations.NonNull;
  * 修改备注：
  */
 
-public abstract class BaseActivity<P extends BaseContract.Presenter,M extends BaseModule> extends AppCompatActivity {
+public abstract class MVPBaseActivity<P extends MVPBaseContract.Presenter,M extends MVPBaseModule> extends AppCompatActivity {
 
     protected String TAG = "TAG:" + getClass().getSimpleName();
 

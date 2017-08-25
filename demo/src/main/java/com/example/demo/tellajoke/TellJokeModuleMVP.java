@@ -1,12 +1,11 @@
 package com.example.demo.tellajoke;
 
-import com.example.basic.BaseModule;
+import com.example.demo.mvp.MVPBaseModule;
 import com.example.commonutils.clouddata.APIRetrofit;
 import com.example.demo.JuHeApi;
 import com.example.demo.bean.Joke;
 
 import io.reactivex.Observable;
-import retrofit2.Call;
 
 /**
  * 项目名称：com.example.demo.tellajoke
@@ -19,7 +18,7 @@ import retrofit2.Call;
  * 修改备注：
  */
 
-public class TellJokeModule implements BaseModule {
+public class TellJokeModuleMVP implements MVPBaseModule {
 
     JuHeApi juHeApi = APIRetrofit.getInstance("http://japi.juhe.cn/").create(JuHeApi.class);
     Observable<Joke> getJokeList(String key, int page, int pagesize, String sort, long titme){

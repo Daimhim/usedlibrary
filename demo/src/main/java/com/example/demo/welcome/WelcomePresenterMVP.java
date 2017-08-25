@@ -1,6 +1,6 @@
 package com.example.demo.welcome;
 
-import com.example.basic.BasePresenter;
+import com.example.demo.mvp.MVPBasePresenter;
 
 /**
  * 项目名称：com.example.demo.welcome
@@ -13,10 +13,10 @@ import com.example.basic.BasePresenter;
  * 修改备注：
  */
 
-public class WelcomePresenter extends BasePresenter<WelcomeContract.View,WelcomeModule>  {
+public class WelcomePresenterMVP extends MVPBasePresenter<WelcomeContract.View,WelcomeModuleMVP> {
 
 
-    public WelcomePresenter(WelcomeContract.View view, WelcomeModule module) {
+    public WelcomePresenterMVP(WelcomeContract.View view, WelcomeModuleMVP module) {
         super(view, module);
     }
 

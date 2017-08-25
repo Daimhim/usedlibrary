@@ -1,8 +1,21 @@
 package com.example.demo.tellajoke;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
-import com.example.basic.BaseActivity;
+import com.example.demo.mvp.MVPBaseActivity;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Date;
+
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 项目名称：com.example.demo.tellajoke
@@ -15,14 +28,45 @@ import com.example.basic.BaseActivity;
  * 修改备注：
  */
 
-public class TellJokeActivity extends BaseActivity<TellJokeContract.Presenter,TellJokeModule> {
-    TellJokeFragment mTellJokeFragment;
+public class TellJokeActivity extends MVPBaseActivity<TellJokeContract.Presenter,TellJokeModuleMVP> {
+    TellJokeFragmentMVP mTellJokeFragment;
     @Override
     protected void setPresenterAndModule() {
-        module = new TellJokeModule();
-        mTellJokeFragment = new TellJokeFragment();
-        presenter = new TellJokePresenter(mTellJokeFragment,module);
+        module = new TellJokeModuleMVP();
+        mTellJokeFragment = new TellJokeFragmentMVP();
+        presenter = new TellJokePresenterMVP(mTellJokeFragment,module);
         mTellJokeFragment.setPresenterAndModule(presenter,module);
+    }
+
+    public void setTvDate(final TextView tvDate){
+        Observable.just(new Date())
+                .map(new Function<Date, Date>() {
+                    @Override
+                    public Date apply(Date date) throws Exception {
+                        try {
+                            URL url=new URL("http://www.baidu.com");//取得资源对象
+                            URLConnection uc=url.openConnection();//生成连接对象
+                            uc.connect(); //发出连接
+                            long ld=uc.getDate(); //取得网站日期时间
+                            date.setTime(ld);
+                            return date;
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        }// 取得资源对象
+                        catch (IOException e) {
+                        }
+                        return date;
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Date>() {
+                    @Override
+                    public void accept(Date date) throws Exception {
+                        tvDate.setText(date.getDate()+"日"+date.getHours()+"时"+date.getMinutes()+"分"+date.getSeconds()+"秒");
+                        System.out.print(date.getDate()+"日"+date.getHours()+"时"+date.getMinutes()+"分"+date.getSeconds()+"秒");
+                    }
+                });
     }
 
     @Override

@@ -1,7 +1,9 @@
-package com.example.basic;
+package com.example.demo.welcome;
+
+import com.example.demo.mvp.MVPBaseModule;
 
 /**
- * 项目名称：com.example.basic
+ * 项目名称：com.example.demo.welcome
  * 项目版本：usedlibrary
  * 创建人：Daimhim
  * 创建时间：2017/8/3 15:51
@@ -11,5 +13,5 @@ package com.example.basic;
  * 修改备注：
  */
 
-public interface BaseModule {
+public class WelcomeModuleMVP implements MVPBaseModule {
 }

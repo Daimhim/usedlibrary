@@ -1,4 +1,4 @@
-package com.example.basic;
+package com.example.demo.mvp;
 
 /**
  * 项目名称：com.example.demo
@@ -11,10 +11,9 @@ package com.example.basic;
  * 修改备注：
  */
 
-public interface BaseContract {
+public interface MVPBaseContract {
 
     interface View{
-
         void setPresenterAndModule();
 
         void showProgressDialog();
@@ -29,5 +28,8 @@ public interface BaseContract {
         void onStart();
 
         void onStop();
+    }
+    interface Module{
+
     }
 }

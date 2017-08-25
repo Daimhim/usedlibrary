@@ -1,6 +1,6 @@
 package com.example.demo.welcome;
 
-import com.example.basic.BaseContract;
+import com.example.demo.mvp.MVPBaseContract;
 
 /**
  * 项目名称：com.example.demo.welcome
@@ -14,11 +14,11 @@ import com.example.basic.BaseContract;
  */
 
 public class WelcomeContract {
-    interface View extends BaseContract.View{
+    interface View extends MVPBaseContract.View{
 
     }
 
-    interface Presenter extends BaseContract.Presenter{
+    interface Presenter extends MVPBaseContract.Presenter{
 
     }
 }

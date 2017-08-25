@@ -60,9 +60,9 @@ public abstract class RecyclerAdapterClick<VH extends RecyclerAdapterClick.BaseV
         return false;
     }
 
-    public class BaseViewHolder extends RecyclerView.ViewHolder {
+    public class BaseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View.OnClickListener mOnHolderClickListene = null;
-        private View.OnLongClickListener mOnHolderLongClickListener = null;
+        private View.OnLongClickListener mOnHolderLongClickListener = this;
 
         public BaseViewHolder(View itemView) {
             super(itemView);
@@ -71,21 +71,10 @@ public abstract class RecyclerAdapterClick<VH extends RecyclerAdapterClick.BaseV
 
         protected void initOnItemClickListeners(View itemView) {
             if (null != mOnItemClickListeners || isOnItemClickListener()) {
-                mOnHolderClickListene = new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        onItemClickListener(v, getLayoutPosition(), getOnItemClickListener());
-                    }
-                };
+                mOnHolderClickListene = this;
             }
             if (null != mOnItemLongClickListener || isOnItemLongClickListener()) {
-                mOnHolderLongClickListener = new View.OnLongClickListener() {
-                    @Override
-                    public boolean onLongClick(View v) {
-                        onItemLongClickListener(v, getLayoutPosition(), getOnItemLongClickListener());
-                        return true;
-                    }
-                };
+                mOnHolderLongClickListener =this;
             }
         }
 
@@ -95,6 +84,17 @@ public abstract class RecyclerAdapterClick<VH extends RecyclerAdapterClick.BaseV
 
         public View.OnLongClickListener getOnHolderLongClickListener() {
             return mOnHolderLongClickListener;
+        }
+
+        @Override
+        public void onClick(View v) {
+            onItemClickListener(v, getLayoutPosition(), getOnItemClickListener());
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            onItemLongClickListener(v, getLayoutPosition(), getOnItemLongClickListener());
+            return true;
         }
     }
 

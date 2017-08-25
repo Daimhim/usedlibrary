@@ -2,12 +2,11 @@ package com.example.demo;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
-import com.example.basic.BaseActivity;
+import com.example.demo.mvp.MVPBaseActivity;
 
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivityMVP extends MVPBaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {

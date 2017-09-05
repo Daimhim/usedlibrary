@@ -1,6 +1,5 @@
 package com.example.demo.tellajoke;
 
-import com.example.demo.mvp.MVPBaseModule;
 import com.example.commonutils.clouddata.APIRetrofit;
 import com.example.demo.JuHeApi;
 import com.example.demo.bean.Joke;
@@ -18,7 +17,7 @@ import io.reactivex.Observable;
  * 修改备注：
  */
 
-public class TellJokeModuleMVP implements MVPBaseModule {
+public class TellJokeModuleMVP {
 
     JuHeApi juHeApi = APIRetrofit.getInstance("http://japi.juhe.cn/").create(JuHeApi.class);
     Observable<Joke> getJokeList(String key, int page, int pagesize, String sort, long titme){

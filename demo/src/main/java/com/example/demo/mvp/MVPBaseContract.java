@@ -13,7 +13,7 @@ package com.example.demo.mvp;
 
 public interface MVPBaseContract {
 
-    interface View{
+    public interface View{
         void setPresenterAndModule();
 
         void showProgressDialog();
@@ -23,13 +23,13 @@ public interface MVPBaseContract {
         void showError(String error);
     }
 
-    interface Presenter{
+    public interface Presenter{
 
         void onStart();
 
         void onStop();
     }
-    interface Module{
+    public interface Module{
 
     }
 }

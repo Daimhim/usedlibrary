@@ -21,7 +21,7 @@ import io.reactivex.annotations.NonNull;
  * 修改备注：
  */
 
-public abstract class MVPBaseActivity<P extends MVPBaseContract.Presenter,M extends MVPBaseModule> extends AppCompatActivity {
+public abstract class MVPBaseActivity<P extends MVPBaseContract.Presenter,M extends MVPBaseContract.Module> extends AppCompatActivity {
 
     protected String TAG = "TAG:" + getClass().getSimpleName();
 

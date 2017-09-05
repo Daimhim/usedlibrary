@@ -22,7 +22,7 @@ import com.example.basic.utils.ToastUtil;
  * 修改备注：
  */
 
-public abstract class MVPBaseFragment<P extends MVPBaseContract.Presenter,M extends MVPBaseModule> extends Fragment implements MVPBaseContract.View{
+public abstract class MVPBaseFragment<P extends MVPBaseContract.Presenter,M> extends Fragment implements MVPBaseContract.View{
 
     protected String TAG = "TAG:" + getClass().getSimpleName();
 

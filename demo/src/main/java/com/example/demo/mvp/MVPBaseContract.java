@@ -1,5 +1,9 @@
 package com.example.demo.mvp;
 
+import com.example.demo.bean.Joke;
+
+import io.reactivex.Observable;
+
 /**
  * 项目名称：com.example.demo
  * 项目版本：usedlibrary

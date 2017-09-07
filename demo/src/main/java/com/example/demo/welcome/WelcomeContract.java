@@ -21,4 +21,7 @@ public class WelcomeContract {
     interface Presenter extends MVPBaseContract.Presenter{
 
     }
+    public interface Module extends MVPBaseContract.Module{
+
+    }
 }

@@ -3,6 +3,7 @@ package com.example.demo.tellajoke;
 import com.example.commonutils.clouddata.APIRetrofit;
 import com.example.demo.JuHeApi;
 import com.example.demo.bean.Joke;
+import com.example.demo.mvp.MVPBaseContract;
 
 import io.reactivex.Observable;
 
@@ -17,10 +18,11 @@ import io.reactivex.Observable;
  * 修改备注：
  */
 
-public class TellJokeModuleMVP {
+public class TellJokeModuleMVP implements TellJokeContract.Module {
 
     JuHeApi juHeApi = APIRetrofit.getInstance("http://japi.juhe.cn/").create(JuHeApi.class);
-    Observable<Joke> getJokeList(String key, int page, int pagesize, String sort, long titme){
+    @Override
+    public Observable<Joke> getJokeList(String key, int page, int pagesize, String sort, long titme){
 
         return juHeApi.getJokeList(key, page, pagesize,sort, titme);
     }

@@ -14,7 +14,7 @@ import io.reactivex.disposables.Disposable;
  * 修改备注：
  */
 
-public abstract class MVPBasePresenter<V extends MVPBaseContract.View,M>  implements MVPBaseContract.Presenter{
+public abstract class MVPBasePresenter<V extends MVPBaseContract.View,M extends MVPBaseContract.Module>  implements MVPBaseContract.Presenter{
     protected String TAG = "TAG:" + getClass().getSimpleName();
 
     private CompositeDisposable mCompositeSubscription;

@@ -18,9 +18,9 @@ import io.reactivex.schedulers.Schedulers;
  * 修改备注：
  */
 
-public class TellJokePresenterMVP extends MVPBasePresenter<TellJokeContract.View,TellJokeModuleMVP> implements TellJokeContract.Presenter{
+public class TellJokePresenterMVP extends MVPBasePresenter<TellJokeContract.View,TellJokeContract.Module> implements TellJokeContract.Presenter{
 
-    public TellJokePresenterMVP(TellJokeContract.View view, TellJokeModuleMVP module) {
+    public TellJokePresenterMVP(TellJokeContract.View view, TellJokeContract.Module module) {
         super(view, module);
     }
 

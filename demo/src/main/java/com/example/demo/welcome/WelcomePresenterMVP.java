@@ -13,10 +13,10 @@ import com.example.demo.mvp.MVPBasePresenter;
  * 修改备注：
  */
 
-public class WelcomePresenterMVP extends MVPBasePresenter<WelcomeContract.View,WelcomeModuleMVP> {
+public class WelcomePresenterMVP extends MVPBasePresenter<WelcomeContract.View,WelcomeContract.Module> {
 
 
-    public WelcomePresenterMVP(WelcomeContract.View view, WelcomeModuleMVP module) {
+    public WelcomePresenterMVP(WelcomeContract.View view,WelcomeContract.Module module) {
         super(view, module);
     }
 

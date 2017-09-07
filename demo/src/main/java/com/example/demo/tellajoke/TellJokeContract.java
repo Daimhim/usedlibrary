@@ -5,6 +5,8 @@ import com.example.demo.bean.Joke;
 
 import java.util.List;
 
+import io.reactivex.Observable;
+
 /**
  * 项目名称：com.example.demo.tellajoke
  * 项目版本：usedlibrary
@@ -23,5 +25,9 @@ public interface TellJokeContract {
 
     interface Presenter extends MVPBaseContract.Presenter{
         void getJokeSet(int page,int pagesize);
+    }
+
+    public interface Module extends MVPBaseContract.Module{
+        Observable<Joke> getJokeList(String key, int page, int pagesize, String sort, long titme);
     }
 }

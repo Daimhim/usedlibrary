@@ -3,10 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/basic/basic.iml" filepath="$PROJECT_DIR$/basic/basic.iml" />
+      <module fileurl="file://F:\AndroidProject\usedlibrary\basic\basic.iml" filepath="F:\AndroidProject\usedlibrary\basic\basic.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonutils/commonutils.iml" filepath="$PROJECT_DIR$/commonutils/commonutils.iml" />
+      <module fileurl="file://F:\AndroidProject\usedlibrary\commonutils\commonutils.iml" filepath="F:\AndroidProject\usedlibrary\commonutils\commonutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
+      <module fileurl="file://F:\AndroidProject\usedlibrary\demo\demo.iml" filepath="F:\AndroidProject\usedlibrary\demo\demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/used/used.iml" filepath="$PROJECT_DIR$/used/used.iml" />
+      <module fileurl="file://F:\AndroidProject\usedlibrary\used\used.iml" filepath="F:\AndroidProject\usedlibrary\used\used.iml" />
       <module fileurl="file://$PROJECT_DIR$/usedlibrary.iml" filepath="$PROJECT_DIR$/usedlibrary.iml" />
+      <module fileurl="file://F:\AndroidProject\usedlibrary\usedlibrary.iml" filepath="F:\AndroidProject\usedlibrary\usedlibrary.iml" />
     </modules>
   </component>
 </project>

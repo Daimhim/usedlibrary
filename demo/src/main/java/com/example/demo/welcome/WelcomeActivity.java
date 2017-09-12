@@ -15,7 +15,7 @@ import com.example.demo.mvp.MVPBaseActivity;
  * 修改备注：
  */
 
-public class WelcomeActivityMVP extends MVPBaseActivity<WelcomeContract.Presenter,WelcomeModuleMVP> {
+public class WelcomeActivity extends MVPBaseActivity<WelcomeContract.Presenter,WelcomeModule> {
 
 
     @Override

@@ -4,6 +4,7 @@ import com.example.commonutils.clouddata.APIRetrofit;
 import com.example.demo.JuHeApi;
 import com.example.demo.bean.Joke;
 import com.example.demo.mvp.MVPBaseContract;
+import com.example.demo.mvp.MVPBaseModule;
 
 import io.reactivex.Observable;
 
@@ -18,7 +19,7 @@ import io.reactivex.Observable;
  * 修改备注：
  */
 
-public class TellJokeModuleMVP implements TellJokeContract.Module {
+public class TellJokeModule extends MVPBaseModule implements TellJokeContract.Module {
 
     JuHeApi juHeApi = APIRetrofit.getInstance("http://japi.juhe.cn/").create(JuHeApi.class);
     @Override

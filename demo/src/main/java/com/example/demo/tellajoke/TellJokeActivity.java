@@ -2,7 +2,6 @@ package com.example.demo.tellajoke;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.demo.mvp.MVPBaseActivity;
 
@@ -29,13 +28,13 @@ import io.reactivex.schedulers.Schedulers;
  * 修改备注：
  */
 
-public class TellJokeActivity extends MVPBaseActivity<TellJokeContract.Presenter,TellJokeModuleMVP> {
-    TellJokeFragmentMVP mTellJokeFragment;
+public class TellJokeActivity extends MVPBaseActivity<TellJokeContract.Presenter,TellJokeModule> {
+    TellJokeFragment mTellJokeFragment;
     @Override
     protected void setPresenterAndModule() {
-        module = new TellJokeModuleMVP();
-        mTellJokeFragment = new TellJokeFragmentMVP();
-        presenter = new TellJokePresenterMVP(mTellJokeFragment,module);
+        module = new TellJokeModule();
+        mTellJokeFragment = new TellJokeFragment();
+        presenter = new TellJokePresenter(mTellJokeFragment,module);
         mTellJokeFragment.setPresenterAndModule(presenter,module);
     }
 

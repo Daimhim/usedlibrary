@@ -1,5 +1,7 @@
 package com.example.demo.welcome;
 
+import com.example.demo.mvp.MVPBaseModule;
+
 /**
  * 项目名称：com.example.demo.welcome
  * 项目版本：usedlibrary
@@ -11,5 +13,5 @@ package com.example.demo.welcome;
  * 修改备注：
  */
 
-public class WelcomeModuleMVP {
+public class WelcomeModule extends MVPBaseModule implements WelcomeContract.Module{
 }

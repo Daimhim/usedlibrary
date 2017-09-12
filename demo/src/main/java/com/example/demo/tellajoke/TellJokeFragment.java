@@ -31,7 +31,7 @@ import java.util.List;
  * 修改备注：
  */
 
-public class TellJokeFragmentMVP extends MVPBaseFragment<TellJokeContract.Presenter, TellJokeModuleMVP> implements TellJokeContract.View, OnRefreshListener, OnLoadmoreListener {
+public class TellJokeFragment extends MVPBaseFragment<TellJokeContract.Presenter, TellJokeModule> implements TellJokeContract.View, OnRefreshListener, OnLoadmoreListener {
 
 
 

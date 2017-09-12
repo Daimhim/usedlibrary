@@ -19,7 +19,7 @@ import com.example.demo.mvp.MVPBaseFragment;
  * 修改备注：
  */
 
-public class WelcomeFragmentMVP extends MVPBaseFragment<WelcomeContract.Presenter,WelcomeModuleMVP> {
+public class WelcomeFragment extends MVPBaseFragment<WelcomeContract.Presenter,WelcomeModule> {
 
 
     @Override

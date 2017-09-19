@@ -78,8 +78,6 @@ public class ResourceImportTest {
      */
     ExecutorService mExecutorService = null;
 
-    File temFile = null;
-    File targetFile = null;
 
     void init() {
         mFromFile = new File("F:\\AndroidProject\\usedlibrary\\demo\\src\\main\\res").listFiles();
@@ -98,6 +96,7 @@ public class ResourceImportTest {
             for (int j = 0; j < mToFile.length; j++) {
                 if (mFromFile[i].getName().equals(mToFile[j].getName()) && mFromFile[i].isDirectory() && mToFile[j].isDirectory()) {
                     mExecutorService.execute(new ResourceImport(mFromFile[i], mToFile[j], mFiles));
+                    continue;
                 }
             }
         }
@@ -116,6 +115,9 @@ public class ResourceImportTest {
         File mFromFile;
         File mToFile;
         Map<String,String> mFiles;
+
+        File temFile = null;
+        File targetFile = null;
 
         public ResourceImport(File fromFile, File toFile, Map<String,String> files) {
             mFromFile = fromFile;

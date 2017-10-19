@@ -10,6 +10,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.SparseArray;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -52,6 +53,8 @@ public abstract class RecycleDecoration extends RecyclerView.ItemDecoration {
     private CustomizedOffsets mCustomizedOffsets;
 
     private CustomizedDraw mCustomizedDraw;
+
+    private SparseArray<CacheItemView> mItemViewSparseArray;
 
     private Context mContext;
 
@@ -107,6 +110,7 @@ public abstract class RecycleDecoration extends RecyclerView.ItemDecoration {
         this.topRectColor = decorationBuilder.topRectColor;
         this.rightRectColor = decorationBuilder.rightRectColor;
         this.bottomRectColor = decorationBuilder.bottomRectColor;
+        mItemViewSparseArray = new SparseArray<>();
         return this;
     }
 
@@ -126,10 +130,10 @@ public abstract class RecycleDecoration extends RecyclerView.ItemDecoration {
             View childAt = parent.getChildAt(i);
             int position = parent.getChildAdapterPosition(childAt);
             //绘制边线 获取用户定义的绘制类
-            CacheItemView itemOffsets = state.get(position);
-            if (null == itemOffsets)break;
-            if (itemOffsets.outRect == null)break;
-            if (itemOffsets.outRectColor == null)break;
+            CacheItemView itemOffsets = mItemViewSparseArray.get(position);
+            if (null == itemOffsets){break;}
+            if (itemOffsets.outRect == null){break;}
+            if (itemOffsets.outRectColor == null){break;}
             if (null != mCustomizedDraw) {
                 if (!mCustomizedDraw.obtainDrawOver(c, position, childAt,
                         itemOffsets.outRect,
@@ -235,7 +239,7 @@ public abstract class RecycleDecoration extends RecyclerView.ItemDecoration {
         itemOffsets.position = position;
         itemOffsets.outRectColor = itemColor;
         itemOffsets.outRect = itemRect;
-        state.put(position, itemOffsets);
+        mItemViewSparseArray.put(position,itemOffsets);
     }
 
     /**

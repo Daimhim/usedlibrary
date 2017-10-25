@@ -407,8 +407,6 @@ public class GridDecoration extends RecycleDecoration {
 
         switch (orientation) {
             case VERTICAL_CROSS:
-                outRect.right = getDividerWidth();
-                itemColor.right = getDividerColor();
             case VERTICAL:
                 drawRight(outRect, itemColor);
                 outRect.bottom = getDividerWidth();

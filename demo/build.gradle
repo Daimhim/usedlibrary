@@ -31,12 +31,7 @@ dependencies {
     //noinspection GradleCompatible
     compile 'com.android.support:appcompat-v7:26.0.0'
     compile 'com.android.support:recyclerview-v7:25.0.0'
-    compile 'com.jakewharton:butterknife:8.7.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.2-alpha-7'
-    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.2-alpha-7'
-    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3-alpha-6'
-    //没有使用特殊Header，可以不加这行
     compile('com.squareup.retrofit2:retrofit:2.3.0') {
         exclude group: 'com.squareup.retrofit2', module: 'retrofit'
     }
@@ -51,4 +46,6 @@ dependencies {
     compile project(':commonutils')
     compile project(':used')
     compile 'com.android.support:cardview-v7:26.0.0'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

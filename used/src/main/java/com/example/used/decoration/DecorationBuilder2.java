@@ -1,5 +1,7 @@
 package com.example.used.decoration;
 
+import android.content.Context;
+
 /**
  * 项目名称：com.example.used.decoration
  * 项目版本：usedlibrary
@@ -12,5 +14,14 @@ package com.example.used.decoration;
  */
 
 public class DecorationBuilder2 {
+
+    private RecycleDecoration2 mRecycleDecoration2;
+
+    private Context mContext;
+
+    public DecorationBuilder2(Context context) {
+        mContext = context;
+    }
+
 
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.example.demo.leveldecorationdemo.ChargingProgess
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cgv_item_count="100"
+        app:cgv_item_height="2dp"
+        app:cgv_item_width="80dp"
+        app:cgv_item_charging_src="#00A1BD"
+        app:cgv_item_charging_background="#000000"
+        app:cgv_background="#F9F9F9"
+        app:cgv_border_width="1dp"
+        app:cgv_border_color="#00A1BD"/>
+</LinearLayout>

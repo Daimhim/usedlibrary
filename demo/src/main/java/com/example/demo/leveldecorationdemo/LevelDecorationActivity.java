@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * 项目名称：com.example.demo.leveldecorationdemo
@@ -43,7 +42,7 @@ public class LevelDecorationActivity extends FragmentActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_test);
+        setContentView(R.layout.activity_level_decoration);
 //        ButterKnife.bind(this);
 //        initView();
     }

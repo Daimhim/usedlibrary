@@ -14,7 +14,7 @@
     		}
     	}  
         dependencies {
-            compile 'com.github.Daimhim.usedlibrary:used:1.0.5-alpha-1'
+            compile 'com.github.Daimhim.usedlibrary:used:1.0.5-alpha-3'
         }
 	
 	

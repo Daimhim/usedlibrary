@@ -253,6 +253,8 @@ public class GridDecoration extends RecycleDecoration {
                 drawRight(outRect, itemColor);
                 drawBottom(outRect, itemColor);
                 break;
+            default:
+                break;
         }
     }
 
@@ -278,6 +280,8 @@ public class GridDecoration extends RecycleDecoration {
             case HORIZONTAL:
                 drawTop(outRect, itemColor);
                 drawRight(outRect, itemColor);
+                break;
+            default:
                 break;
         }
     }
@@ -305,6 +309,8 @@ public class GridDecoration extends RecycleDecoration {
                 drawBottom(outRect, itemColor);
                 outRect.right = getDividerWidth();
                 itemColor.right = getDividerColor();
+                break;
+            default:
                 break;
         }
     }

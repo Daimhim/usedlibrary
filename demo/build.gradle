@@ -1,14 +1,16 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.didi.virtualapk.host'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.0'
+    compileSdkVersion rootProject.ext.COMPILE_SDK_VERSION
+    buildToolsVersion rootProject.ext.BUILD_TOOLS_VERSION
+
     defaultConfig {
+        minSdkVersion rootProject.ext.MIN_SDK_VERSION
+        targetSdkVersion rootProject.ext.TARGET_SDK_VERSION
+        versionCode 100
+        versionName "1.0.0"
         applicationId "com.example.daimhim.demo"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -29,7 +31,7 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     //noinspection GradleCompatible
-    compile 'com.android.support:appcompat-v7:26.0.0'
+    compile "com.android.support:appcompat-v7:$rootProject.ext.LIB_VERSION"
     compile 'com.android.support:recyclerview-v7:25.0.0'
     compile 'com.jakewharton:butterknife:8.7.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
@@ -49,5 +51,6 @@ dependencies {
     compile project(':basic')
     compile project(':commonutils')
     compile project(':used')
-    compile 'com.android.support:cardview-v7:26.0.0'
+    compile "com.android.support:cardview-v7:$rootProject.ext.LIB_VERSION"
+    compile 'com.didi.virtualapk:core:0.9.0'
 }

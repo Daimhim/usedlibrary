@@ -1,1 +1,1 @@
-include ':demo', ':used', ':basic', 'commonutils'
+include ':demo', ':used', ':basic', 'commonutils', ':rvadapter', ':rvdecoration'

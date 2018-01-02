@@ -21,7 +21,7 @@ public abstract class MVPBasePresenter<V extends MVPBaseContract.View,M extends 
     protected V view;
     protected M module;
 
-    public MVPBasePresenter(V view, M module) {
+    public MVPBasePresenter(V view, M module,String code) {
         this.view = view;
         this.module = module;
     }

@@ -16,8 +16,8 @@ import com.example.demo.mvp.MVPBasePresenter;
 public class WelcomePresenter extends MVPBasePresenter<WelcomeContract.View,WelcomeContract.Module> {
 
 
-    public WelcomePresenter(WelcomeContract.View view, WelcomeContract.Module module) {
-        super(view, module);
+    public WelcomePresenter(WelcomeContract.View view, WelcomeContract.Module module,String code) {
+        super(view, module,code);
     }
 
 }

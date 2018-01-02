@@ -1,16 +1,15 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    compileSdkVersion rootProject.ext.COMPILE_SDK_VERSION
+    buildToolsVersion rootProject.ext.BUILD_TOOLS_VERSION
 
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-
+        minSdkVersion rootProject.ext.MIN_SDK_VERSION
+        targetSdkVersion rootProject.ext.TARGET_SDK_VERSION
+        versionCode 100
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -29,7 +28,7 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     //noinspection GradleCompatible
-    compile 'com.android.support:appcompat-v7:26.0.0'
+    compile "com.android.support:appcompat-v7:$rootProject.ext.LIB_VERSION"
     compile ('io.reactivex.rxjava2:rxjava:2.1.0'){
         exclude group:'io.reactivex.rxjava2', module:'rxjava'
     }

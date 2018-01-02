@@ -86,6 +86,4 @@ public class APIRetrofit {
         return sOKHttpClient;
     }
 
-
-
 }

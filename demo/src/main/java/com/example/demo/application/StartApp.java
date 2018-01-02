@@ -3,6 +3,7 @@ package com.example.demo.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.didi.virtualapk.PluginManager;
 import com.example.commonutils.config.Config;
 import com.example.demo.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -45,6 +46,11 @@ public class StartApp extends Application {
                 return new ClassicsFooter(context).setSpinnerStyle(SpinnerStyle.Translate);
             }
         });
+    }
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        PluginManager.getInstance(base).init();
     }
     @Override
     public void onCreate() {

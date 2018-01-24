@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.didi.virtualapk.host'
 
 android {
     compileSdkVersion rootProject.ext.COMPILE_SDK_VERSION
@@ -25,20 +24,17 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support'
-    })
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation "junit:junit:$rootProject.ext.TEST_JUNIT"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.TEST_RUNNER"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.TEST_ESPRESSO_CORE"
+
     //noinspection GradleCompatible
     compile "com.android.support:appcompat-v7:$rootProject.ext.LIB_VERSION"
-    compile 'com.android.support:recyclerview-v7:25.0.0'
-    compile 'com.jakewharton:butterknife:8.7.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
-    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.2-alpha-7'
-    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.2-alpha-7'
-    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3-alpha-6'
-    //没有使用特殊Header，可以不加这行
+    compile "com.android.support:recyclerview-v7:$rootProject.ext.LIB_VERSION"
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
     compile('com.squareup.retrofit2:retrofit:2.3.0') {
         exclude group: 'com.squareup.retrofit2', module: 'retrofit'
     }
@@ -48,9 +44,8 @@ dependencies {
     compile('io.reactivex.rxjava2:rxjava:2.1.0') {
         exclude group: 'io.reactivex.rxjava2', module: 'rxjava'
     }
-    compile project(':basic')
-    compile project(':commonutils')
+    compile project(':common')
+    compile project(':network')
     compile project(':used')
     compile "com.android.support:cardview-v7:$rootProject.ext.LIB_VERSION"
-    compile 'com.didi.virtualapk:core:0.9.0'
 }

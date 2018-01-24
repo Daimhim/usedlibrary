@@ -3,8 +3,6 @@ package com.example.demo.application;
 import android.app.Application;
 import android.content.Context;
 
-import com.didi.virtualapk.PluginManager;
-import com.example.commonutils.config.Config;
 import com.example.demo.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreater;
@@ -15,6 +13,8 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+
+import org.daimhim.network.config.Config;
 
 /**
  * 项目名称：com.example.demo
@@ -34,8 +34,10 @@ public class StartApp extends Application {
         SmartRefreshLayout.setDefaultRefreshHeaderCreater(new DefaultRefreshHeaderCreater() {
             @Override
             public RefreshHeader createRefreshHeader(Context context, RefreshLayout layout) {
-                layout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);//全局设置主题颜色
-                return new ClassicsHeader(context).setSpinnerStyle(SpinnerStyle.Translate);//指定为经典Header，默认是 贝塞尔雷达Header
+                //全局设置主题颜色
+                layout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);
+                //指定为经典Header，默认是 贝塞尔雷达Header
+                return new ClassicsHeader(context).setSpinnerStyle(SpinnerStyle.Translate);
             }
         });
         //设置全局的Footer构建器
@@ -50,7 +52,6 @@ public class StartApp extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        PluginManager.getInstance(base).init();
     }
     @Override
     public void onCreate() {

@@ -4,12 +4,11 @@ buildscript {
     ext.kotlin_version = '1.1.2-4'
 
     repositories {
-        maven { url 'https://maven.google.com' }
+        google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'com.didi.virtualapk:gradle:0.9.0'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -17,17 +16,20 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url 'https://maven.google.com' }
+        google()
         jcenter()
     }
 }
 ext{
-    COMPILE_SDK_VERSION = 25
+    COMPILE_SDK_VERSION = 26
     BUILD_TOOLS_VERSION = "26.0.2"
     MIN_SDK_VERSION = 15
-    TARGET_SDK_VERSION = 21
+    TARGET_SDK_VERSION = 26
 
-    LIB_VERSION = '25.4.0'
+    LIB_VERSION = '26.1.0'
+    TEST_ESPRESSO_CORE = '3.0.1'
+    TEST_RUNNER = '1.0.1'
+    TEST_JUNIT = '4.12'
 }
 
 task clean(type: Delete) {
